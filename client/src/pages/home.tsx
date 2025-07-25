@@ -63,7 +63,7 @@ export default function Home() {
               </div>
 
               <Link href="/test">
-                <Button className="bg-gradient-to-r from-pink-main to-mint-main text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                <Button className="bg-gradient-to-r from-pink-600 to-pink-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                   테스트 시작하기
                 </Button>
               </Link>

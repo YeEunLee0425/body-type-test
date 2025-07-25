@@ -59,7 +59,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.json({
         id: bodyTypeResult.id,
-        result
+        result,
+        gender
       });
       
     } catch (error) {

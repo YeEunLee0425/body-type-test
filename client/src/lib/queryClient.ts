@@ -10,18 +10,34 @@ async function throwIfResNotOk(res: Response) {
 export async function apiRequest(
   method: string,
   url: string,
-  data?: unknown | undefined,
+  data?: unknown | FormData,
 ): Promise<Response> {
+  // 1) 헤더와 바디를 상황에 맞게 초기화
+  const headers: Record<string, string> = {};
+  let bodyInit: BodyInit | undefined;
+
+  if (data instanceof FormData) {
+    // FormData일 때는 Content-Type 헤더를 지정하지 않고
+    // body에 그대로 FormData를 넣어줍니다.
+    bodyInit = data;
+  } else if (data !== undefined) {
+    // 일반 객체(JSON)일 때만 Content-Type을 붙이고 stringify
+    headers["Content-Type"] = "application/json";
+    bodyInit = JSON.stringify(data);
+  }
+
+  // 2) fetch 호출에 위에서 준비한 headers/bodyInit 적용
   const res = await fetch(url, {
     method,
-    headers: data ? { "Content-Type": "application/json" } : {},
-    body: data ? JSON.stringify(data) : undefined,
+    headers,
+    body: bodyInit,
     credentials: "include",
   });
 
   await throwIfResNotOk(res);
   return res;
 }
+
 
 type UnauthorizedBehavior = "returnNull" | "throw";
 export const getQueryFn: <T>(options: {
