@@ -39,7 +39,8 @@ export class MemStorage implements IStorage {
   async createBodyTypeResult(insertResult: InsertBodyTypeResult): Promise<BodyTypeResult> {
     const id = randomUUID();
     const result: BodyTypeResult = { 
-      ...insertResult, 
+      ...insertResult,
+      photos: insertResult.photos || null,
       id,
       createdAt: new Date()
     };

@@ -67,5 +67,5 @@ export default function Results() {
     );
   }
 
-  return <ResultsDisplay result={result} />;
+  return <ResultsDisplay result={result as any} />;
 }

@@ -59,6 +59,14 @@ export default function PhotoUpload({ gender, answers, onComplete }: PhotoUpload
     analysisMutation.mutate(formData);
   };
 
+  const handleSkipPhotos = () => {
+    const formData = new FormData();
+    formData.append('gender', gender);
+    formData.append('answers', JSON.stringify(answers));
+    
+    analysisMutation.mutate(formData);
+  };
+
   const hasPhotos = uploadedPhotos.some(photo => photo !== null);
 
   const photoLabels = [
@@ -145,16 +153,39 @@ export default function PhotoUpload({ gender, answers, onComplete }: PhotoUpload
         })}
       </div>
 
-      <div className="text-center">
-        <Button
-          onClick={handleAnalysis}
-          disabled={!hasPhotos}
-          className="bg-gradient-to-r from-pink-main to-mint-main text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
-        >
-          <Brain className="mr-2" size={20} />
-          AI 분석 시작하기
-        </Button>
-        <p className="text-sm text-gray-400 mt-4">최소 1장의 사진을 업로드해주세요</p>
+      <div className="text-center space-y-4">
+        {hasPhotos ? (
+          <Button
+            onClick={handleAnalysis}
+            className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
+            <Brain className="mr-2" size={20} />
+            AI 분석 시작하기
+          </Button>
+        ) : (
+          <div className="space-y-3">
+            <Button
+              onClick={handleSkipPhotos}
+              className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+            >
+              <Brain className="mr-2" size={20} />
+              사진 없이 분석하기
+            </Button>
+            <p className="text-sm text-gray-500">사진을 업로드하면 더 정확한 분석이 가능합니다</p>
+          </div>
+        )}
+        
+        {hasPhotos && (
+          <div className="pt-4 border-t border-gray-200">
+            <Button
+              onClick={handleSkipPhotos}
+              variant="outline"
+              className="px-6 py-2 rounded-full font-medium text-gray-600 hover:text-gray-800"
+            >
+              사진 없이 분석하기
+            </Button>
+          </div>
+        )}
       </div>
     </CardContent>
   );

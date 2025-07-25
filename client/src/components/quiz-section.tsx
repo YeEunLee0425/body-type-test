@@ -8,84 +8,184 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const quizQuestions = [
   {
-    question: "목의 길이는 어떤가요?",
-    options: ["상대적으로 짧은 편", "보통 길이", "긴 편"]
+    question: "거울 앞에서 목의 길이를 확인해보세요",
+    description: "턱 끝에서 쇄골까지의 거리를 측정해보세요",
+    options: [
+      "짧음 - 주먹 하나 크기 정도",
+      "보통 - 주먹 하나와 반 크기",
+      "긺 - 주먹 두 개 크기 이상"
+    ]
   },
   {
-    question: "어깨 라인의 특징은?",
-    options: ["둥글고 부드러운 어깨", "직각에 가까운 어깨", "자연스럽고 균형잡힌 어깨"]
+    question: "어깨 끝점(어깨뼈 가장자리)의 모양을 관찰해보세요",
+    description: "상체를 벗고 거울을 통해 어깨 라인을 확인하세요",
+    options: [
+      "둥근 형태 - 어깨가 완만한 곡선을 그림",
+      "각진 형태 - 어깨가 직각에 가까움",
+      "자연스러운 형태 - 둥글지도 각지지도 않음"
+    ]
   },
   {
-    question: "상체의 전체적인 느낌은?",
-    options: ["탄탄하고 볼륨감 있음", "가늘고 여린 느낌", "자연스럽고 건강한 느낌"]
+    question: "쇄골의 두께와 선명도를 확인해보세요",
+    description: "목 아래 가슴 위쪽의 가로로 난 뼈를 살펴보세요",
+    options: [
+      "두껍고 뚜렷하지 않음 - 근육에 덮여 잘 보이지 않음",
+      "얇고 선명함 - 뼈가 가늘고 명확히 보임",
+      "적당한 두께 - 보통 정도로 보임"
+    ]
   },
   {
-    question: "쇄골 라인은 어떻게 보이나요?",
-    options: ["뚜렷하지 않음", "선명하고 얇게 보임", "적당히 보임"]
+    question: "팔을 자연스럽게 내렸을 때 손목의 둘레를 측정해보세요",
+    description: "손목 가장 가는 부위를 엄지와 중지로 둘러보세요",
+    options: [
+      "작음 - 엄지와 중지가 겹침",
+      "매우 작음 - 엄지와 중지가 많이 겹침",
+      "큼 - 엄지와 중지가 닿지 않음"
+    ]
   },
   {
-    question: "허리 위치는?",
-    options: ["비교적 높은 편", "낮은 편", "보통"]
+    question: "허리 위치를 확인해보세요",
+    description: "팔꿈치를 옆구리에 붙였을 때 팔꿈치와 허리의 관계",
+    options: [
+      "팔꿈치보다 위 - 허리가 높은 위치",
+      "팔꿈치보다 아래 - 허리가 낮은 위치",
+      "팔꿈치와 비슷한 높이"
+    ]
   },
   {
-    question: "엉덩이 모양은?",
-    options: ["평평한 편", "둥글고 곡선적", "자연스러운 형태"]
+    question: "다리를 곧게 펴고 무릎뼈의 크기를 확인해보세요",
+    description: "앉아서 다리를 펴고 무릎뼈 부분을 관찰하세요",
+    options: [
+      "작고 둥근 형태",
+      "매우 작고 각진 형태",
+      "크고 둥근 형태"
+    ]
   },
   {
-    question: "다리의 특징은?",
-    options: ["무릎 위부터 날렵함", "전체적으로 부드러운 곡선", "길고 자연스러움"]
+    question: "발의 크기와 모양을 확인해보세요",
+    description: "발등의 높이와 전체적인 발의 크기를 확인하세요",
+    options: [
+      "작고 발등이 높음",
+      "작고 발등이 낮음",
+      "크고 발등이 보통"
+    ]
   },
   {
-    question: "손목과 발목은?",
-    options: ["가늘고 얇음", "매우 가늘고 섬세함", "보통이거나 약간 굵음"]
+    question: "팔 전체의 근육 발달 정도를 확인해보세요",
+    description: "팔에 힘을 주지 않은 상태에서 근육의 두께를 확인",
+    options: [
+      "근육이 탄탄하고 두꺼움",
+      "근육보다 지방이 더 많음",
+      "적당한 근육량과 지방량"
+    ]
   },
   {
-    question: "피부의 질감은?",
-    options: ["탄력있고 두꺼운 느낌", "부드럽고 얇은 느낌", "매트하고 자연스러움"]
+    question: "손의 크기와 손가락 길이를 확인해보세요",
+    description: "손바닥 크기와 손가락의 길이 비율을 관찰하세요",
+    options: [
+      "손바닥이 두꺼우고 손가락이 상대적으로 짧음",
+      "손바닥이 얇고 손가락이 긺",
+      "손바닥과 손가락이 균형적"
+    ]
   },
   {
-    question: "전체적인 체형의 느낌은?",
-    options: ["견고하고 안정적", "부드럽고 여성스러움", "자연스럽고 활동적"]
+    question: "등을 벽에 대고 서서 어깨뼈 사이의 간격을 확인해보세요",
+    description: "등을 곧게 펴고 어깨뼈 사이의 거리를 확인",
+    options: [
+      "어깨뼈가 가깝고 두꺼움",
+      "어깨뼈가 멀고 얇음",
+      "어깨뼈 간격이 보통"
+    ]
   },
   {
-    question: "근육의 발달 정도는?",
-    options: ["쉽게 근육이 붙고 탄탄함", "근육보다 체지방이 많음", "적당한 근육량"]
+    question: "목 둘레를 측정해보세요",
+    description: "목의 가장 가는 부분의 둘레를 확인하세요",
+    options: [
+      "굵고 짧음",
+      "가늘고 긺",
+      "보통 굵기와 길이"
+    ]
   },
   {
-    question: "체중 증가 시 살이 찌는 부위는?",
-    options: ["상체 중심으로", "하체 중심으로", "전체적으로 고르게"]
+    question: "피부를 만져서 두께감을 확인해보세요",
+    description: "팔뚝이나 허벅지 피부를 살짝 잡아보세요",
+    options: [
+      "두껍고 탄력있음",
+      "얇고 부드러움",
+      "보통 두께, 매트한 질감"
+    ]
   },
   {
-    question: "관절의 크기는?",
-    options: ["작고 섬세함", "매우 작고 얇음", "크고 굵음"]
+    question: "체중 변화 시 가장 먼저 변화를 느끼는 부위는?",
+    description: "살이 찌거나 빠질 때 가장 먼저 눈에 띄는 부위",
+    options: [
+      "상체(얼굴, 팔, 가슴 부위)",
+      "하체(허벅지, 엉덩이, 종아리)",
+      "전신에 고르게 분포"
+    ]
   },
   {
-    question: "얼굴형의 특징은?",
-    options: ["각진 턱라인", "둥글고 부드러운 라인", "자연스러운 타원형"]
+    question: "발목의 두께를 확인해보세요",
+    description: "발목 가장 가는 부분을 엄지와 중지로 둘러보세요",
+    options: [
+      "가늘어서 손가락이 겹침",
+      "매우 가늘어서 손가락이 많이 겹침",
+      "굵어서 손가락이 닿지 않음"
+    ]
   },
   {
-    question: "머리카락의 특성은?",
-    options: ["굵고 볼륨감 있음", "가늘고 부드러움", "자연스러운 웨이브"]
+    question: "옆에서 봤을 때 등의 라인을 확인해보세요",
+    description: "옆모습으로 등의 곡선을 관찰하세요",
+    options: [
+      "일직선에 가까운 직선적 라인",
+      "완만한 S자 곡선",
+      "자연스러운 곡선"
+    ]
   },
   {
-    question: "손의 크기와 모양은?",
-    options: ["작고 두꺼운 손", "작고 가는 손", "큰 편의 손"]
+    question: "앉았을 때 허벅지와 의자 사이의 공간을 확인해보세요",
+    description: "딱딱한 의자에 앉았을 때 허벅지 뒤쪽 공간",
+    options: [
+      "공간이 거의 없음 - 허벅지가 탄탄함",
+      "공간이 있음 - 허벅지가 부드러움",
+      "적당한 공간"
+    ]
   },
   {
-    question: "발의 특징은?",
-    options: ["작고 높은 발등", "작고 얇은 발", "큰 편의 발"]
+    question: "팔꿈치 관절의 크기를 확인해보세요",
+    description: "팔을 구부렸을 때 팔꿈치 뼈의 크기",
+    options: [
+      "작고 뚜렷하지 않음",
+      "매우 작고 날카로움",
+      "크고 뚜렷함"
+    ]
   },
   {
-    question: "목선의 특징은?",
-    options: ["굵고 짧음", "가늘고 긺", "보통 굵기"]
+    question: "정면에서 봤을 때 골반의 폭을 확인해보세요",
+    description: "허리와 골반의 너비 차이를 관찰하세요",
+    options: [
+      "허리와 골반의 차이가 적음",
+      "허리와 골반의 차이가 큼",
+      "허리와 골반이 균형적"
+    ]
   },
   {
-    question: "전체적인 골격의 느낌은?",
-    options: ["작고 견고함", "작고 섬세함", "크고 자연스러움"]
+    question: "전신을 봤을 때 가장 넓은 부위는 어디인가요?",
+    description: "정면에서 봤을 때 가장 볼륨이 있는 부위",
+    options: [
+      "어깨 부위가 가장 넓음",
+      "골반 부위가 가장 넓음",
+      "어깨와 골반이 비슷함"
+    ]
   },
   {
-    question: "옷을 입었을 때 가장 어울리는 스타일은?",
-    options: ["정돈되고 심플한 스타일", "여성스럽고 부드러운 스타일", "캐주얼하고 자연스러운 스타일"]
+    question: "머리카락의 두께와 양을 확인해보세요",
+    description: "한 가닥을 손가락으로 만져보세요",
+    options: [
+      "굵고 많음",
+      "가늘고 적음",
+      "보통 두께와 양"
+    ]
   }
 ];
 
@@ -135,9 +235,12 @@ export default function QuizSection({ onComplete }: QuizSectionProps) {
 
       {/* Question */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold text-dark-custom mb-6">
+        <h3 className="text-xl font-semibold text-dark-custom mb-3">
           {quizQuestions[currentQuestion].question}
         </h3>
+        <p className="text-sm text-gray-custom mb-6 bg-blue-50 p-3 rounded-lg">
+          {quizQuestions[currentQuestion].description}
+        </p>
         
         <RadioGroup
           value={answers[currentQuestion]?.toString()}
@@ -170,7 +273,7 @@ export default function QuizSection({ onComplete }: QuizSectionProps) {
         <Button
           onClick={handleNext}
           disabled={!isAnswered}
-          className="bg-gradient-to-r from-pink-main to-mint-main text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all"
+          className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-700 hover:to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all disabled:opacity-40"
         >
           {currentQuestion === quizQuestions.length - 1 ? '사진 업로드' : '다음'}
           <ChevronRight className="ml-2" size={16} />

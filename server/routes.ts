@@ -35,7 +35,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Gender and answers are required" });
       }
       
-      const parsedAnswers = JSON.parse(answers);
+      let parsedAnswers;
+      try {
+        parsedAnswers = typeof answers === 'string' ? JSON.parse(answers) : answers;
+      } catch (error) {
+        return res.status(400).json({ message: "Invalid answers format" });
+      }
       
       // Simple body type analysis based on answers
       const result = analyzeBodyType(parsedAnswers, gender);
@@ -44,7 +49,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const bodyTypeResult = await storage.createBodyTypeResult({
         gender,
         answers: parsedAnswers,
-        photos: photos ? photos.map(file => ({
+        photos: photos && photos.length > 0 ? photos.map(file => ({
           originalName: file.originalname,
           size: file.size,
           mimetype: file.mimetype
@@ -97,7 +102,7 @@ function analyzeBodyType(answers: number[], gender: string) {
   
   // Determine primary type
   const maxScore = Math.max(scores.straight, scores.wave, scores.natural);
-  const primaryTypes = Object.keys(scores).filter(type => scores[type] === maxScore);
+  const primaryTypes = Object.keys(scores).filter(type => scores[type as keyof typeof scores] === maxScore);
   
   let bodyType: string;
   let confidence: number;

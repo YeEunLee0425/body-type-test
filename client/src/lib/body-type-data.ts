@@ -17,7 +17,7 @@ export const bodyTypeData = {
       accessories: ["V형 목걸이", "직선적인 귀걸이", "미니멀 시계", "구조적인 가방"]
     },
     celebrities: {
-      female: ["김혜수", "손예진", "한가인"],
+      female: ["트와이스 지효", "아이브 안유진", "김혜수"],
       male: ["정우성", "이종석", "박서준"]
     }
   },
@@ -39,8 +39,8 @@ export const bodyTypeData = {
       accessories: ["섬세한 목걸이", "흔들리는 귀걸이", "얇은 팔찌", "작은 가방"]
     },
     celebrities: {
-      female: ["쯔위", "나연", "미연"],
-      male: ["박보검", "윤계상", "남주혁"]
+      female: ["트와이스 쯔위", "트와이스 나연", "아이들 미연"],
+      male: ["박보검", "남주혁", "윤계상"]
     }
   },
   natural: {
@@ -61,7 +61,7 @@ export const bodyTypeData = {
       accessories: ["볼드한 목걸이", "큰 귀걸이", "두꺼운 팔찌", "오버사이즈 가방"]
     },
     celebrities: {
-      female: ["리사", "유나", "한예슬"],
+      female: ["블랙핑크 리사", "있지 유나", "한예슬"],
       male: ["이정재", "공유", "현빈"]
     }
   }
